@@ -16,15 +16,13 @@ const merge = (left, right) => {
 
 //break down lists
 const mergeSort = (list) => {
-  const half = list.length / 2;
-  const left = list.slice(0, half);
-  const right = list.slice(half);
-
-  if (list.length === 1) {
-    return list;
-  }
   //merge sorted broken down lists
-  return merge(mergeSort(left), mergeSort(right));
+  return list.length === 1
+    ? list
+    : merge(
+        mergeSort(list.slice(0, list.length / 2)),
+        mergeSort(list.slice(list.length / 2)),
+      );
 };
 
 console.log(mergeSort(list));
