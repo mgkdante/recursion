@@ -1,6 +1,7 @@
 const list = [3, 2, 1, 13, 8, 5, 0, 1];
 const list2 = [105, 79, 100, 110];
 
+//merge function to merge lists as they are broken down
 const merge = (left, right) => {
   let arr = [];
   while (left.length && right.length) {
@@ -13,6 +14,7 @@ const merge = (left, right) => {
   return [...arr, ...left, ...right];
 };
 
+//break down lists
 const mergeSort = (list) => {
   const half = list.length / 2;
   const left = list.slice(0, half);
@@ -21,6 +23,7 @@ const mergeSort = (list) => {
   if (list.length === 1) {
     return list;
   }
+  //merge sorted broken down lists
   return merge(mergeSort(left), mergeSort(right));
 };
 
